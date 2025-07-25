@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl, LayersControl } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
 import supabase from '../lib/supabase';
@@ -24,8 +24,17 @@ export default function Carte() {
   }, []);
 
   return (
-    <MapContainer center={[46.5, 2]} zoom={6} className="h-full w-full">
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+    <MapContainer center={[46.5, 2]} zoom={6} zoomControl={false} className="h-screen w-full fixed top-0 left-0">
+      <ZoomControl position="topright" />
+      <LayersControl position="topright">
+        <LayersControl.BaseLayer checked name="OpenStreetMap">
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='Source: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | &copy; <a href="https://lucaslaplanche.fr">Lucas Laplanche</a>' />
+        </LayersControl.BaseLayer>
+        <LayersControl.BaseLayer name="Satellite (ESRI)">
+          <TileLayer attribution='Tiles © Esri'
+            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
+        </LayersControl.BaseLayer>
+      </LayersControl>
       {lieux.map((lieu) => (
         <Marker key={lieu.id} position={[lieu.latitude, lieu.longitude]}>
           <Popup>
