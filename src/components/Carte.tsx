@@ -28,7 +28,7 @@ export default function Carte() {
       <ZoomControl position="topright" />
       <LayersControl position="topright">
         <LayersControl.BaseLayer checked name="OpenStreetMap">
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='Source: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | &copy; <a href="https://lucaslaplanche.fr">Lucas Laplanche</a>' />
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='Source: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'/>
         </LayersControl.BaseLayer>
         <LayersControl.BaseLayer name="Satellite (ESRI)">
           <TileLayer attribution='Tiles © Esri'

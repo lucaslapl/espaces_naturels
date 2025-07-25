@@ -29,9 +29,9 @@ const Nav = () => {
         }`}
       >
         <ul className="space-y-4">
-          <li><a href="/" onClick={() => setIsOpen(false)}>Accueil</a></li>
-          <li><a href="/about" onClick={() => setIsOpen(false)}>À propos</a></li>
-          <li><a href="/contact" onClick={() => setIsOpen(false)}>Contact</a></li>
+          <li><a href="#" onClick={() => setIsOpen(false)}>Accueil</a></li>
+          <li><a href="#" onClick={() => setIsOpen(false)}>Ajouter un</a></li>
+          <li><a href="#" onClick={() => setIsOpen(false)}>Contact</a></li>
         </ul>
       </nav>
     </>
