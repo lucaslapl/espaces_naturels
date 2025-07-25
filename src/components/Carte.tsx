@@ -24,7 +24,7 @@ export default function Carte() {
   }, []);
 
   return (
-    <MapContainer center={[46.5, 2]} zoom={6} className="h-[600px] w-full rounded shadow">
+    <MapContainer center={[46.5, 2]} zoom={6} className="h-full w-full">
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {lieux.map((lieu) => (
         <Marker key={lieu.id} position={[lieu.latitude, lieu.longitude]}>
